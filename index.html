@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style3.css">
     <script src="script.js"></script>
 </head>
 
@@ -119,26 +120,57 @@
             <p>Upto 5% extra off on prepaid orders.</p>
         </div>
         <div class="slider-area">
-            <section class="product-slider Myslider">
-                <div class="slider-wrapper">
-                    <div class="slider">
-                        <img class="slide1" src="img/slide1.jpg" alt="product image">
-                        <img class="slide2" src="img/slide2.jpg" alt="product image">
-                        <img class="slide3" src="img/slide3.jpg" alt="product image">
-                        <img class="slide4" src="img/slide4.jpg" alt="product image">
-                        <img class="slide5" src="img/slide5.jpg" alt="product image">
-                    </div>
-                    <div class="slider-nav">
-                        <a href=".slide1"></a>
-                        <a href=".slide2"></a>
-                        <a href=".slide3"></a>
-                        <a href=".slide4"></a>
-                        <a href=".slide5"></a>
-                    </div>
 
-
+            <div class="slider-wrapper">
+                <div class="slider1">
+                    <img class="slide1 fade " src="img/slide1.jpg" alt="product image">
+                    <img class="slide1 fade " src="img/slide2.jpg" alt="product image">
+                    <img class="slide1 fade " src="img/slide3.jpg" alt="product image">
+                    <img class="slide1 fade " src="img/slide4.jpg" alt="product image">
+                    <img class="slide1 fade " src="img/slide5.jpg" alt="product image">
                 </div>
-            </section>
+
+
+
+
+
+            </div>
+
+
+
+            <br>
+
+            <div style="text-align:center">
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+                <span class="dots"></span>
+            </div>
+
+            <script>
+                let slideIndex = 0;
+                showSlides();
+
+                function showSlides() {
+                    let i;
+                    let slides = document.getElementsByClassName("slide1");
+                    let dots = document.getElementsByClassName("dots");
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    slideIndex++;
+                    if (slideIndex > slides.length) {
+                        slideIndex = 1
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex - 1].style.display = "block";
+                    dots[slideIndex - 1].className += " active";
+                    setTimeout(showSlides, 2000); // Change image every 2 seconds
+                }
+            </script>
         </div>
         <!---------------------------product display----------------------------->
         <div class="product-display">
@@ -228,13 +260,7 @@
                 <div class="product-info">
                     <div class="flex-product">
                         <div class="product-slider2">
-                            <ul class="product-img">
-                                <img src="img/pro1.jpg" alt="img1" class="product-sliding">
-                                <img src="img/pro2.jpg" alt="img2" class="product-sliding">
-                                <img src="img/pro3.jpg" alt="img3" class="product-sliding">
-                                <img src="img/pro4.jpg" alt="img4" class="product-sliding">
-                                <img src="img/pro5.jpg" alt="img5" class="product-sliding">
-                            </ul>
+                            <a href="#"><img src="img/best-product.png" alt=""></a>
                         </div>
                     </div>
 
@@ -250,12 +276,93 @@
                             <p>Find the best offers from our latest products</p>
                         </div>
                         <div class="arrival-scroll">
+                            <div class="slider-container">
+                                <div class="slider">
+                                    <div class="scroll-box">
+                                        <div class="available">
+                                            <span>New</span>
+                                        </div>
+                                        <div class="offer">11% OFF</div>
+                                        <img src="img/scroll1.jpg" alt="r">
+                                        <div class="content-teaser"> Lorem ipsum dolor sit amet.</div>
+                                    </div>
+                                    <div class="scroll-box">
+                                        <div class="available">
+                                            <span>New</span>
+                                        </div>
+                                        <div class="offer">11% OFF</div>
+
+                                        <img src="img/scroll2.png" alt="e">
+                                        <div class="content-teaser"> Lorem ipsum dolor sit amet.</div>
+                                    </div>
+                                    <div class="scroll-box">
+                                        <div class="available">
+                                            <span>Best</span>
+                                        </div>
+                                        <div class="offer">20% OFF</div>
+                                        <img src="img/scroll3.jpg" alt="d">
+                                        <div class="content-teaser"> Lorem ipsum dolor sit.</div>
+                                    </div>
+                                    <div class="scroll-box">
+                                        <div class="available">
+                                            <span>Sold Out</span>
+                                        </div>
+                                        <div class="offer">11% OFF</div>
+                                        <img src="img/scroll4.jpg" alt="c">
+                                        <div class="content-teaser"> Lorem ipsum dolor sit.</div>
+                                    </div>
+                                    <div class="scroll-box">
+                                        <div class="available">
+                                            <span>Sold Out</span>
+                                        </div>
+                                        <div class="offer">11% OFF</div>
+                                        <img src="img/scroll5.png" alt="b">
+                                        <div class="content-teaser"> Lorem ipsum dolor sit.</div>
+                                    </div>
+                                    <div class="scroll-box">
+                                        <div class="available">
+                                            <span>Sold Out</span>
+                                        </div>
+                                        <div class="offer">11% OFF</div>
+                                        <img src="img/scroll6.jpg" alt="a">
+                                        <div class="content-teaser"> Lorem ipsum dolor sit.</div>
+                                    </div>
+                                </div>
+                            </div>
 
 
                         </div>
                     </div>
                 </div>
             </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const slider = document.querySelector('.slider');
+                    const slides = document.querySelectorAll('.scroll-bar');
+                    const totalSlides = slides.length;
+                    const slideWidth = 100 / totalSlides;
+
+                    // Set the width of each slide dynamically
+                    slides.forEach(slide => {
+                        slide.style.width = `${slideWidth}%`;
+                    });
+
+                    function nextSlide() {
+                        slider.style.transition = 'transform 0.5s ease-in-out';
+                        slider.style.transform = `translateX(-${slideWidth}%)`;
+
+                        setTimeout(() => {
+                            slider.style.transition = 'none';
+                            slider.style.transform = 'translateX(0)';
+                            slider.appendChild(slider.firstElementChild);
+                        }, 500);
+                    }
+
+                    setInterval(nextSlide, 4000); // Change slide every 3 seconds
+                });
+            </script>
+            <!-----------------------------------------Customer------------------------------------------------>
             <div class="customer">
                 <div class="customer-container">
                     <div class="customer-flex">
@@ -265,12 +372,12 @@
                         <div class="flex-out">
                             <div class="flex-slider">
                                 <ul class="flex-img">
-                                    <img src="img/customer1.jpg" alt="img1" class="image-sliding">
-                                    <img src="img/customer2.jpg" alt="img2" class="image-sliding">
-                                    <img src="img/customer3.jpg" alt="img3" class="image-sliding">
-                                    <img src="img/customer4.jpg" alt="img4" class="image-sliding">
-                                    <img src="img/customer5.jpg" alt="img5" class="image-sliding">
-                                    <img src="img/customer6.jpg" alt="img6" class="image-sliding">
+                                    <img src="img/customer1.jpg" alt="img1" class="image-sliding slide2">
+                                    <img src="img/customer2.jpg" alt="img2" class="image-sliding slide2">
+                                    <img src="img/customer3.jpg" alt="img3" class="image-sliding slide2">
+                                    <img src="img/customer4.jpg" alt="img4" class="image-sliding slide2">
+                                    <img src="img/customer5.jpg" alt="img5" class="image-sliding slide2">
+                                    <img src="img/customer6.jpg" alt="img6" class="image-sliding slide2">
                                 </ul>
 
                             </div>

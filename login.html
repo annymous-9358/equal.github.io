@@ -1,58 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        .slider-container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
         }
         
-        .container {
-            width: 300px;
-            padding: 16px;
-            background-color: white;
-            margin: 0 auto;
-            margin-top: 100px;
-            border: 1px solid black;
-            border-radius: 4px;
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
         }
         
-        input[type=text],
-        input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
+        .slide {
+            min-width: 100%;
             box-sizing: border-box;
         }
         
-        .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
+        .scroll-box {
+            display: block;
+            width: 150px;
+            height: 260px;
+            background-color: #fff;
+            margin: 0px 8px;
+            padding: 5px;
+            border-radius: 8px;
+            color: #000;
         }
         
-        .btn:hover {
-            opacity: 0.8;
+        .offer {
+            background-color: rgb(220, 53, 69);
+            border-radius: 3px;
+            z-index: 1;
+            width: 73px;
+            height: 18px;
+            font-weight: bold;
+            padding: 0px 8px;
+            margin: 4px;
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+        }
+        
+        .content-teaser {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            width: 142px;
+            height: 42px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        
+        .scroll-box img {
+            width: 133px;
+            height: 140px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+        
+        .available {
+            width: 52px;
+            height: 18px;
+            background-color: rgb(33, 37, 41);
+            color: white;
+            font-size: 12px;
+            border-radius: 3px;
+            z-index: 1;
+            display: block;
+            position: absolute;
+            margin-left: 80px;
+            margin-top: 4px;
+            font-weight: bold;
+            text-align: center;
         }
     </style>
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.scroll-bar');
+            const totalSlides = slides.length;
+
+            // Duplicate slides for continuous loop
+            slider.innerHTML += slider.innerHTML;
+
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                currentIndex = index % totalSlides;
+                const newPosition = -currentIndex * 100 + '%';
+                slider.style.transform = `translateX(${newPosition})`;
+            }
+
+            function nextSlide() {
+                showSlide(currentIndex + 1);
+            }
+
+            function prevSlide() {
+                showSlide(currentIndex - 1);
+            }
+
+            setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
+            document.querySelector('.prev').addEventListener('click', prevSlide);
+            document.querySelector('.next').addEventListener('click', nextSlide);
+        });
+    </script>>
 </head>
 
 <body>
-    <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="scroll-box">
+                <div class="available">
+                    <span>New</span>
+                </div>
+                <div class="offer">11% OFF</div>
+                <img src="img/scroll1.jpg" alt="">
+                <div class="content-teaser"> Lorem ipsum dolor sit amet.</div>
+            </div>
+            <div class="scroll-box">
+                <div class="available">
+                    <span>New</span>
+                </div>
+                <div class="offer">11% OFF</div>
 
-        <button type="submit" class="btn">Login</button>
+                <img src="img/scroll2.png" alt="">
+                <div class="content-teaser"> Lorem ipsum dolor sit amet.</div>
+            </div>
+            <div class="scroll-box">
+                <div class="available">
+                    <span>Best</span>
+                </div>
+                <div class="offer">20% OFF</div>
+                <img src="img/scroll3.jpg" alt="">
+                <div class="content-teaser"> Lorem ipsum dolor sit.</div>
+            </div>
+            <div class="scroll-box">
+                <div class="available">
+                    <span>Sold Out</span>
+                </div>
+                <div class="offer">11% OFF</div>
+                <img src="img/scroll4.jpg" alt="">
+                <div class="content-teaser"> Lorem ipsum dolor sit.</div>
+            </div>
+            <div class="scroll-box">
+                <div class="available">
+                    <span>Sold Out</span>
+                </div>
+                <div class="offer">11% OFF</div>
+                <img src="img/cat1.jpg" alt="">
+                <div class="content-teaser"> Lorem ipsum dolor sit.</div>
+            </div>
+            <div class="scroll-box">
+                <div class="available">
+                    <span>Sold Out</span>
+                </div>
+                <div class="offer">11% OFF</div>
+                <img src="img/cat10.jpg" alt="">
+                <div class="content-teaser"> Lorem ipsum dolor sit.</div>
+            </div>
+            <div class="scroll-box">
+                <div class="available">
+                    <span>Sold Out</span>
+                </div>
+                <div class="offer">11% OFF</div>
+                <img src="img/cat5.jpg" alt="">
+                <div class="content-teaser"> Lorem ipsum dolor sit.</div>
+            </div>
+        </div>
     </div>
+
+    <button class="prev">Previous</button>
+    <button class="next">Next</button>
+
 </body>
 
 </html>
