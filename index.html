@@ -369,29 +369,56 @@
                         <div class="flex-text">
                             <h2>Our Esteemed customer</h2>
                         </div>
-                        <div class="flex-out">
+                        <div class="flex-slider-container">
                             <div class="flex-slider">
-                                <ul class="flex-img">
+                                <div class="flex-img">
                                     <img src="img/customer1.jpg" alt="img1" class="image-sliding slide2">
-                                    <img src="img/customer2.jpg" alt="img2" class="image-sliding slide2">
-                                    <img src="img/customer3.jpg" alt="img3" class="image-sliding slide2">
-                                    <img src="img/customer4.jpg" alt="img4" class="image-sliding slide2">
-                                    <img src="img/customer5.jpg" alt="img5" class="image-sliding slide2">
-                                    <img src="img/customer6.jpg" alt="img6" class="image-sliding slide2">
-                                </ul>
+                                </div>
+                                <div class="flex-img">
 
-                            </div>
-                            <div class="slider-scrollbar">
-                                <div class="scrollbar-track">
-                                    <div class="scrollbar-thumb"></div>
+                                    <img src="img/customer2.jpg" alt="img2" class="image-sliding slide2">
+                                </div>
+                                <div class="flex-img">
+                                    <img src="img/customer3.jpg" alt="img3" class="image-sliding slide2">
+                                </div>
+                                <div class="flex-img">
+
+                                    <img src="img/customer4.jpg" alt="img4" class="image-sliding slide2">
+                                </div>
+                                <div class="flex-img">
+                                    <img src="img/customer5.jpg" alt="img5" class="image-sliding slide2">
+                                </div>
+                                <div class="flex-img">
+                                    <img src="img/customer6.jpg" alt="img6" class="image-sliding slide2">
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const slider = document.querySelector('.flex-slider');
+
+                function nextSlide() {
+                    const firstSlide = slider.children[0];
+                    slider.appendChild(firstSlide.cloneNode(true));
+
+
+
+                    setTimeout(() => {
+                        slider.style.transition = 'none';
+                        slider.style.transform = 'translateX(0)';
+                        slider.removeChild(firstSlide);
+                    }, 500);
+                }
+
+                setInterval(nextSlide, 3000);
+            });
+        </script>
     </main>
 
     <footer class="footer">
